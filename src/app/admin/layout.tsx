@@ -23,12 +23,12 @@ export default function AdminLayout({
   const [ready, setReady] = useState(false);
   const [email, setEmail] = useState<string | null>(null);
 
-  const isLoginPage = pathname === "/admin" || pathname === "/admin/";
+  const isLoginPage = pathname === "/admin-login" || pathname === "/admin-login/";
 
   useEffect(() => {
     const token = getToken();
     if (!token && !isLoginPage) {
-      router.replace("/admin");
+      router.replace("/admin-login");
       return;
     }
     if (token && isLoginPage) {
@@ -40,7 +40,7 @@ export default function AdminLayout({
       fetchAdminMe(API_URL).then((user) => {
         if (!user) {
           clearSession();
-          router.replace("/admin");
+          router.replace("/admin-login");
         } else {
           setEmail(user.email ?? getEmail());
           setReady(true);
@@ -54,7 +54,7 @@ export default function AdminLayout({
 
   function handleLogout() {
     clearSession();
-    router.replace("/admin");
+    router.replace("/admin-login");
   }
 
   if (!ready) {
