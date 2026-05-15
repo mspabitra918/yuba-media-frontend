@@ -1,5 +1,5 @@
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+  process.env.NEXT_PUBLIC_API_URL || "https://api.yubamedia.com";
 
 export async function postJSON<T>(path: string, body: unknown): Promise<T> {
   try {
@@ -16,7 +16,7 @@ export async function postJSON<T>(path: string, body: unknown): Promise<T> {
     if (!res.ok) {
       throw new Error(
         (data as { message?: string })?.message ||
-          `Request failed with status ${res.status}`
+          `Request failed with status ${res.status}`,
       );
     }
     return data as T;
@@ -40,7 +40,7 @@ export async function postForm<T>(path: string, form: FormData): Promise<T> {
     if (!res.ok) {
       throw new Error(
         (data as { message?: string })?.message ||
-          `Request failed with status ${res.status}`
+          `Request failed with status ${res.status}`,
       );
     }
     return data as T;
