@@ -1,5 +1,6 @@
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "https://api.yubamedia.com";
+  // process.env.NEXT_PUBLIC_API_URL || "https://api.yubamedia.com";
+  process.env.NEXT_PUBLIC_API_URL;
 
 export async function postJSON<T>(path: string, body: unknown): Promise<T> {
   try {
@@ -30,6 +31,7 @@ export async function postForm<T>(path: string, form: FormData): Promise<T> {
   try {
     const res = await fetch(`${API_URL}${path}`, {
       method: "POST",
+      headers: { "X-Requested-With": "fetch" },
       body: form,
     });
 

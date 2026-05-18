@@ -23,27 +23,27 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur">
-      <div className="container-x flex h-16 items-center justify-between">
-        <Link href="/" className="font-serif text-xl tracking-tight">
+    <header className="sticky top-0 z-40 border-b border-line bg-white/80 backdrop-blur-md">
+      <div className="container-x flex h-20 items-center justify-between">
+        <Link href="/" className="font-serif text-2xl tracking-tighter hover:opacity-80 transition-opacity">
           Yuba Media
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-10 md:flex">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className={`text-sm transition hover:text-ink ${
+              className={`text-[13px] uppercase tracking-widest transition-all duration-200 hover:text-brand ${
                 isActive(l.href)
-                  ? "font-semibold text-ink"
-                  : "font-normal text-body"
+                  ? "font-bold text-brand"
+                  : "font-medium text-body"
               }`}
             >
               {l.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary !py-2 !text-xs">
+          <Link href="/contact" className="btn-primary !py-2.5 !px-6 !text-[11px] uppercase tracking-wider">
             Get in Touch
           </Link>
         </nav>
@@ -52,31 +52,24 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-line"
+          className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white shadow-sm hover:bg-offwhite transition-colors"
         >
-          {/* <span className="sr-only">Menu</span>
-          <div className="space-y-1.5">
-            <span className="block h-0.5 w-5 bg-ink" />
-            <span className="block h-0.5 w-5 bg-ink" />
-            <span className="block h-0.5 w-5 bg-ink" />
-          </div> */}
-
-          {open ? <RiMenuFoldFill size={27} /> : <RiMenuFold4Fill size={27} />}
+          {open ? <RiMenuFoldFill size={24} className="text-brand" /> : <RiMenuFold4Fill size={24} />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-line bg-white md:hidden">
-          <div className="container-x flex flex-col gap-1 py-4">
+        <div className="fixed inset-x-0 top-20 z-50 h-screen border-t border-line bg-white md:hidden">
+          <div className="container-x flex flex-col gap-2 py-8">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-md px-3 py-2 text-sm ${
+                className={`rounded-xl px-5 py-4 text-lg font-serif transition-colors ${
                   isActive(l.href)
                     ? "bg-infobg text-brand"
-                    : "text-body hover:bg-offwhite"
+                    : "text-ink hover:bg-offwhite"
                 }`}
               >
                 {l.label}
@@ -85,7 +78,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-2 w-full"
+              className="btn-primary mt-6 w-full !py-5 text-base uppercase tracking-widest"
             >
               Get in Touch
             </Link>

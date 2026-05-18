@@ -32,8 +32,16 @@ export default function ContactForm() {
       message: String(fd.get("message") || "").trim(),
     };
 
-    if (!payload.fullName || !payload.email || !payload.inquiryType || !payload.message) {
-      setStatus({ kind: "error", message: "Please fill in all required fields." });
+    if (
+      !payload.fullName ||
+      !payload.email ||
+      !payload.inquiryType ||
+      !payload.message
+    ) {
+      setStatus({
+        kind: "error",
+        message: "Please fill in all required fields.",
+      });
       return;
     }
 
@@ -86,7 +94,13 @@ export default function ContactForm() {
           <label htmlFor="email" className="label">
             Email<span className="text-brand"> *</span>
           </label>
-          <input id="email" name="email" type="email" required className="input" />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className="input"
+          />
         </div>
         <div>
           <label htmlFor="company" className="label">
