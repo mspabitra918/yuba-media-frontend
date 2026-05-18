@@ -1,6 +1,6 @@
 export const API_URL =
-  // process.env.NEXT_PUBLIC_API_URL || "https://api.yubamedia.com";
-  process.env.NEXT_PUBLIC_API_URL;
+  process.env.NEXT_PUBLIC_API_URL || "https://api.yubamedia.com";
+// process.env.NEXT_PUBLIC_API_URL;
 
 export async function postJSON<T>(path: string, body: unknown): Promise<T> {
   try {
