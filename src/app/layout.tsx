@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "Yuba Media — Outbound Sales That Actually Convert",
   description:
     "Cold calling, pay-per-call, and outsourced sales for businesses across North America.",
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
     title: "Yuba Media",
     description:
