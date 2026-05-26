@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   description:
     "Cold calling, pay-per-call, and outsourced sales for businesses across North America.",
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/65a3b70b-8b11-444a-b411-599a99accff8.png",
+    shortcut: "/65a3b70b-8b11-444a-b411-599a99accff8.png",
+    apple: "/65a3b70b-8b11-444a-b411-599a99accff8.png",
   },
   openGraph: {
     title: "Yuba Media",
